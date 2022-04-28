@@ -4,3 +4,275 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: black;
+  overflow-x: hidden;
+}
+.loadingScreen {
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 22px;
+  flex-direction: column;
+}
+.loadingScreen p {
+  margin-top: 50px;
+  padding-left: 24px;
+}
+/* for loading  */
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 8px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* css for showing intro text  */
+
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
+.showText {
+  display: none;
+  background-color: #000;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+  font-weight: 700;
+  color: #ff6;
+}
+
+.showText h1 {
+  position: absolute;
+  width: 2.6em;
+  left: 50%;
+  top: 25%;
+  font-size: 10em;
+  text-align: center;
+  margin-left: -1.3em;
+  line-height: 0.8em;
+  letter-spacing: -0.05em;
+  color: #000;
+  text-shadow: -2px -2px 0 #ff6, 2px -2px 0 #ff6, -2px 2px 0 #ff6,
+    2px 2px 0 #ff6;
+  opacity: 0;
+  z-index: 1;
+  animation: logo 5s ease-out;
+}
+
+.showText h1 sub {
+  display: block;
+  font-size: 0.3em;
+  letter-spacing: 0;
+  line-height: 0.8em;
+}
+
+@keyframes logo {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+}
+
+/* the interesting 3D scrolling */
+.allText {
+  position: absolute;
+  width: 18em;
+  height: 50em;
+  bottom: 0;
+  left: 50%;
+  margin-left: -9em;
+  font-size: 350%;
+  text-align: justify;
+  overflow: hidden;
+  transform-origin: 50% 100%;
+  transform: perspective(360px) rotateX(25deg);
+}
+
+.allText p {
+  text-align: justify;
+  margin: 0.8em 0;
+}
+
+.allText p.center {
+  text-align: center;
+}
+
+#titlecontent {
+  position: absolute;
+  top: 100%;
+  animation: scrollTxt 40s linear;
+}
+
+/* animation */
+
+@keyframes scrollTxt {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+/* play button after text finishes  */
+.playButtonClass {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  color: white;
+}
+
+.innerDiv {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.mybuttonDivHOlder {
+  width: 100%;
+  height: 100%;
+  transition: all 0.8s linear;
+  perspective: 4000px;
+}
+.decreasesizeanim {
+  width: 80%;
+  height: 80%;
+}
+.bringitback {
+  width: 100%;
+  height: 100%;
+}
+
+/* rotating div  */
+.rotateDiv {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 2s;
+  transform-style: preserve-3d;
+}
+.rotateoneeighty {
+  transform: rotateY(180deg);
+}
+.frontPart,
+.backPart {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.frontPart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #282828;
+}
+.backPart {
+  background-color: red;
+  transform: rotateY(180deg);
+  /* overflow: hidden; */
+}
+/* css for button effect  */
+.myButton {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.myButton:hover {
+  cursor: pointer;
+  animation: grow 0.5s;
+  animation-fill-mode: forwards;
+}
+.myButton span {
+  color: #eee;
+  font-size: 50px;
+}
+
+@keyframes grow {
+  from {
+    box-shadow: 0px 0px 1em #000;
+  }
+  to {
+    box-shadow: 0px 0px 3em #000;
+  }
+}
+
+/* css for video  */
+.videoContainer {
+  height: 100px;
+}
+#myVid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+/* controls at bottom  */
+.controlsContainer {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  color: black;
+  font-weight: 800;
+  font-size: 20px;
+  bottom: 10px;
+}
+.controlsInfo {
+  padding: 12px 40px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+.material-icons.md-48 {
+  font-size: 42px;
+}
+
+.controlsInfo span:hover {
+  cursor: pointer;
+}

@@ -7,13 +7,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css" />
   <title>Video Interactivity</title>
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- material icons  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-  <div>
+  <!-- loading screen  -->
+  <div class="loadingScreen">
+    <div class="lds-dual-ring"></div>
+    <p>
+      Loading...
+    </p>
+  </div>
+
+  <!-- text scroll effect  -->
+  <div class="showText">
+    <h1>VIDEO LAB<sub>by Dhurba</sub></h1>
+    <div class="allText">
+      <div id="titlecontent">
+
+        <p class="center">EPISODE X<br />
+          Animations in CSS</p>
+
+        <p>After so many labs, the time has come for a video lab, finally.</p>
+
+        <p>The purpose of this website is to demonstrate a video in a fun and interactive way. Is this related to star
+          wars? Not at all. However, the star wars scroll is very popular and many people like it. That is the reason
+          why I chose to include this in this website.</p>
+
+        <p>The scrolling titles work well in Chrome, Safari and Firefox. Opera doesn't implement 3D transforms yet, but
+          the text will scroll.</p>
+
+        <p class="center">This is cool, isn't it?</p>
+        <p>Without further ado, lets get started.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- video div  -->
+  <div class="playButtonClass">
+    <div class="innerDiv">
+      <!-- button holder div whose w and h decrease on click  -->
+
+      <div class="mybuttonDivHOlder">
+        <div class="rotateDiv">
+          <!-- front face  -->
+          <div class="frontPart">
+            <div class="myButton">
+              <span class="material-icons">
+                play_circle
+              </span>
+            </div>
+          </div>
+          <!-- back face  -->
+          <div class="backPart">
+            <!-- video element  -->
 
 
 
+            <div class="videoContainer"></div>
+            <video id="myVid" tabindex="0" autobuffer="autobuffer" preload="preload">
+              <source type="video/mp4" src="assets/myV.mp4">
+              </source>
+              <p>Sorry, your browser does not support the &lt;video&gt; element.</p>
+            </video>
+
+            <div class="controlsContainer">
+              <div class="controlsInfo">
+                <p>
+                  Scroll down for forwards and scroll up for backwards or click play:
+                </p>
+                <span class="material-icons md-48">
+                  play_circle
+                </span>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <!-- backface div  -->
+
+
+    </div>
+    <!-- end innerDiv  -->
   </div>
   <script src="script.js" defer></script>
 </body>
